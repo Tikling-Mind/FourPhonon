@@ -182,12 +182,12 @@ contains
     four_phonon=.false.
     four_phonon_iteration=.false.
     read(1,nml=flags)
-    if(four_phonon_iteration.and.convergence.eq. .false.) then
+    if(four_phonon_iteration.and.(convergence.eqv. .false.)) then
       if(myid.eq.0)write(error_unit,*) "Error: four_phonon_iteration=.TRUE. but convergence=.FALSE."
       call MPI_BARRIER(MPI_COMM_WORLD,ierr)
       call MPI_FINALIZE(ierr)
     end if
-    if(four_phonon_iteration.and.four_phonon.eq. .false.) then
+    if(four_phonon_iteration.and.(four_phonon.eqv. .false.)) then
       if(myid.eq.0)write(error_unit,*) "Error: four_phonon_iteration=.TRUE. but four_phonon=.FALSE."
       call MPI_BARRIER(MPI_COMM_WORLD,ierr)
       call MPI_FINALIZE(ierr)
