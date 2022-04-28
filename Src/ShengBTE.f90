@@ -703,7 +703,7 @@ program ShengBTE
              rate_scatt_plus,rate_scatt_minus,Pspace_plus_total,Pspace_minus_total)
         ! Will add fou-phonon iteration capabilities when we publish
         ! tag four_phonon_iteration is reserved here
-        if (four_phonon.and.four_phonon_iteration.eq. .false.) then
+        if (four_phonon.and.four_phonon_iteration.eqv. .false.) then
           call RTA_driver_4ph(energy,velocity,eigenvect,Nlist,List,IJK,&
                 Ntri_4fc,Psi,R_s,R_t,R_u,Index_r,Index_s,Index_t,Index_u,rate_scatt_4ph,&
                 rate_scatt_plusplus,rate_scatt_plusminus,rate_scatt_minusminus,&
@@ -751,7 +751,7 @@ program ShengBTE
             end do
             close(1)
             if (four_phonon) then
-              if (four_phonon_iteration.eq. .false.) then
+              if (four_phonon_iteration.eqv. .false.) then
                 write(*,*) "Info: four_phonon_iteration=.false., using RTA on 4ph calculations"
               end if
               open(1,file="BTE.WP4_plusplus",status="replace")
@@ -818,7 +818,7 @@ program ShengBTE
               close(2)
               close(3)
               close(4)
-              if (four_phonon_iteration.eq. .false.) then
+              if (four_phonon_iteration.eqv. .false.) then
                 write(*,*) "Info: Output four-phonon N/U scattering rates"
                 open(5,file="BTE.w_4ph_normal",status="replace")
                 open(6,file="BTE.w_4ph_Umklapp",status="replace")
